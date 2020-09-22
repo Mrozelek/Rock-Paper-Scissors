@@ -72,15 +72,20 @@
 
     function incrementPoints(winner) {
         winnerTag = document.querySelector('.winner');
+        let winnerText = '';
 
         if (winner !== 'tie') {
             pointsTag = document.querySelector(`.${winner}-score p`);
             pointsTag.textContent = ++pointsTag.textContent;
 
-            winnerTag.textContent = `The ${upperCaseFirst(winner)} has won!`;
+            winnerText = `The ${upperCaseFirst(winner)} has won!`;
         } else {
-            winnerTag.textContent = 'It\'s a tie.';
+            winnerText = 'It\'s a tie.';
         }
+
+        setTimeout(() => {
+            winnerTag.textContent = winnerText;
+        }, 300);
     }
 
     function upperCaseFirst(word) {
