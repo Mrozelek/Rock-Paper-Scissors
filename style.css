@@ -80,6 +80,14 @@ body {
 .options {
     display: flex;
     justify-content: space-evenly;
+}
+
+.hands {
+    align-items: center;
+    justify-content: center;
+}
+
+.options {
     align-self: stretch;
 }
 
