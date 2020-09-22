@@ -1,0 +1,26 @@
+.options {
+    flex-direction: column;
+    align-self: center;
+}
+
+.btn {
+    margin-bottom: .8em;
+}
+
+.hands img {
+    width: 15em;
+}
+
+.score {
+    margin: 2em 0;
+}
+
+.intro h1,
+.match h2 {
+    font-size: 2.1rem;
+}
+
+.score p,
+.score h2 {
+    font-size: 1.7rem;
+}
