@@ -9,6 +9,7 @@
 
 .hands img {
     width: 15em;
+    height: auto;
 }
 
 .score {
