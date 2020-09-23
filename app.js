@@ -9,7 +9,7 @@ class Game {
     }
 
     static executeRound(evt) {
-        if (Game.duringRound === true) return;
+        if (Game.duringRound) return;
         Game.startRound();
         const result = Game.executeMovesAndGetResult(evt);
         Game.endRound(result);
