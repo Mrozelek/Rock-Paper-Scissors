@@ -54,20 +54,20 @@
     }
 
     function checkResult(playerMove, computerMove) {
-        const possibleResults = {
-            'rock rock': 'tie',
-            'rock paper': 'computer',
-            'rock scissors': 'player',
-            'paper rock': 'player',
-            'paper paper': 'tie',
-            'paper scissors': 'computer',
-            'scissors rock': 'computer',
-            'scissors paper': 'player',
-            'scissors scissors': 'tie',
-        }
+        const possibleResults = new Map([
+            ['rock rock', 'tie'],
+            ['rock paper', 'computer'],
+            ['rock scissors', 'player'],
+            ['paper rock', 'player'],
+            ['paper paper', 'tie'],
+            ['paper scissors', 'computer'],
+            ['scissors rock', 'computer'],
+            ['scissors paper', 'player'],
+            ['scissors scissors', 'tie']
+        ]);
         const moves = `${playerMove} ${computerMove}`;
 
-        incrementPoints(possibleResults[moves]);
+        incrementPoints(possibleResults.get(moves));
     }
 
     function incrementPoints(winner) {
