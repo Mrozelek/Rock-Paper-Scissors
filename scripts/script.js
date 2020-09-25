@@ -18,7 +18,9 @@ let game = {
 
         if (roundResult !== 'tie') {
             const points = storage.getPoints(roundResult) + 1;
-            ui.changePointsText(roundResult, points);
+            setTimeout(() => {
+                ui.changePointsText(roundResult, points);
+            });
             storage.setPoints(roundResult, points);
         }
 
@@ -90,9 +92,7 @@ const ui = {
     changePointsText: (playerName, points) => {
         pointsTag = (playerName === 'player') ?
             ui.pointsPlayer : ui.pointsOpponent;
-        setTimeout(() => {
         pointsTag.textContent = points;
-        }, 300);
     },
     changeResultText: text => {
         setTimeout(() => {
@@ -113,9 +113,7 @@ const ui = {
         ui.handOpponent.style.animation = `shake-hand-opponent 1s ease`;
         ui.handOpponent.addEventListener('animationend', ui.removeAnimation);
     },
-    removeAnimation: (evt) => {
-        evt.target.style.animation = '';
-    }
+    removeAnimation: evt => evt.target.style.animation = '';
 }
 
 const storage = {
