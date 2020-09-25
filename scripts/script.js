@@ -25,6 +25,7 @@ let game = {
         }
 
         ui.changeResultText(makeResultText(roundResult));
+        game.closeRound();
     },
     executeMoves: evt => {
         const playerMove = game.getPlayerMove(evt);
@@ -56,6 +57,11 @@ let game = {
             ['scissors scissors', 'tie']
         ]);
         return possibleResults.get(moves.join(' '));
+    },
+    closeRound: () => {
+        ui.playerHand.addEventListener('animationend', () => {
+            game.duringRound = false;
+        });
     }
 }
 
@@ -73,6 +79,14 @@ const ui = {
     handPlayer: document.querySelector('#player-hand'),
     handOpponent: document.querySelector('#opponent-hand'),
     transiteToGame: () => {
+        intro.addEventListener('transitionend', () => {
+            ui.intro.style.display = 'none';
+            ui.match.style.display = 'flex';
+            setTimeout(() => {
+                ui.match.classList.remove('fade-out');
+                ui.match.classList.add('fade-in');
+            }, 1);
+        });
         ui.intro.classList.add('fade-out');
     },
     changePointsText: (playerName, points) => {
@@ -103,15 +117,20 @@ const ui = {
 }
 
 const storage = {
-    getStoredPoints: () => return localStorage.getItem('points'),
     loadPoints: () => {
-        if (storage.getStoredPoints === null) return;
         ui.changePointsText('player', storage.getPoints('player'));
         ui.changePointsText('opponent', storage.getPoints('opponent'));
     },
-    getPoints: playerName => {
-        const punctations = storage.getStoredPoints();
-        return JSON.parse(points).find(punctation => punctation.playerName === playerName).points;
+    getPoints: (playerName) => {
+        if (localStorage.getItem('points') === null) {
+            return 0;
+        }
+        const storedPunctations = JSON.parse(localStorage.getItem('points'));
+        for (const storedPunctation of storedPunctations) {
+            if (storedPunctation.playerName === playerName) {
+                return storedPunctation.points;
+            }
+        }
     },
     setPoints: (playerName, points) => {
         const player = { playerName: 'player', points: storage.getPoints('player') };
@@ -149,16 +168,3 @@ ui.rockBtn.addEventListener('click', game.executeRound);
 ui.paperBtn.addEventListener('click', game.executeRound);
 ui.scissorsBtn.addEventListener('click', game.executeRound);
 document.addEventListener('DOMContentLoaded', storage.loadPoints);
-
-ui.playerHand.addEventListener('animationend', () => {
-    game.duringRound = false;
-});
-
-intro.addEventListener('transitionend', () => {
-    ui.intro.style.display = 'none';
-    ui.match.style.display = 'flex';
-    setTimeout(() => {
-        ui.match.classList.remove('fade-out');
-        ui.match.classList.add('fade-in');
-    }, 1);
-});
