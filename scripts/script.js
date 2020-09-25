@@ -135,13 +135,13 @@ const storage = {
     setPoints: (playerName, points) => {
         const player = { playerName: 'player', points: storage.getPoints('player') };
         const opponent = { playerName: 'opponent', points: storage.getPoints('opponent') };
-        const points = [player, opponent];
-        points.map((player) => {
+        const punctation = [player, opponent];
+        punctation.map((player) => {
             if (player.playerName === playerName) {
                 player.points = points;
             }
         });
-        localStorage.setItem('points', JSON.stringify(points));
+        localStorage.setItem('points', JSON.stringify(punctation));
     }
 }
 
