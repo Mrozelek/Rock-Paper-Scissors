@@ -20,7 +20,7 @@ let game = {
             const points = storage.getPoints(roundResult) + 1;
             setTimeout(() => {
                 ui.changePointsText(roundResult, points);
-            });
+            }, 300);
             storage.setPoints(roundResult, points);
         }
 
