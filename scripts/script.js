@@ -113,7 +113,7 @@ const ui = {
         ui.handOpponent.style.animation = `shake-hand-opponent 1s ease`;
         ui.handOpponent.addEventListener('animationend', ui.removeAnimation);
     },
-    removeAnimation: evt => evt.target.style.animation = '';
+    removeAnimation: evt => evt.target.style.animation = ''
 }
 
 const storage = {
