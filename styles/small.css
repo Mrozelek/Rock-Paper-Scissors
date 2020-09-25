@@ -1,0 +1,37 @@
+.score {
+    margin: 2em 0 .5em 0;
+}
+
+.player-name,
+.points {
+    font-size: 1.7rem;
+}
+
+.main-text {
+    font-size: 2rem;
+}
+
+.intro,
+.match {
+    margin: 2.5em auto 0 auto;
+}
+
+.btn {
+    font-size: .9rem;
+    width: 10em;
+}
+
+.hands img {
+    width: 8em;
+    margin: 0 .8em;
+}
+
+.options {
+    flex-direction: column;
+    margin-bottom: 2em;
+    align-items: center;
+}
+
+.options .btn {
+    margin-bottom: 1em;
+}

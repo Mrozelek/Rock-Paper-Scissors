@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper and Scissors</title>
-    <link rel="icon" type="image/png" href="./images/favicon.png"/>
+    <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script defer src="./scripts/scriptOnline.js"></script>
     <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" media='screen and (max-width: 600px)' href="./styles/small.css">
-    <script defer src="./scripts/script.js"></script>
 </head>
 
 <body>
@@ -26,8 +25,8 @@
         <div id="intro" class="intro">
             <h1 class="main-text">Rock, Paper and Scissors</h1>
             <div class="play-buttons">
-                <button id="pve-btn" class="btn">Play vs computer</button>
-                <button id="pvp-btn" class="btn" style="display: none">Play online</button>
+                <button id="pve-btn" class="btn" style="display: none">Play vs computer</button>
+                <button id="pvp-btn" class="btn">Play online</button>
             </div>
         </div>
         <div id="match" class="match fade-out">

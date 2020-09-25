@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: sans-serif;
+    /* background: rgb(31, 25, 49); */
+    background: radial-gradient(rgb(164, 118, 194), rgb(107, 118, 180));
+    color: white;
+}
+
+/* Score */
+
+.score {
+    margin: 2.5em 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.player-name,
+.points {
+    margin: .3em 0;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Intro and Match */
+
+.main-text {
+    font-size: 2.5rem;
+    margin: 0 0 2em 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+.intro,
+.match {
+    width: 90%;
+    margin: 5em auto 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.match {
+    display: none;
+}
+
+.play-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.play-buttons button {
+    align-self: center;
+}
+
+.hands,
+.options {
+    margin-bottom: 4em;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.hands img {
+    width: 10em;
+}
+
+#opponent-hand {
+    transform: rotateY(180deg);
+}
+
+.btn {
+    padding: .7em 2em;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+    border: black 3px solid;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: rgb(227, 217, 255);
+}
+
+.fade-out {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .5s ease;
+}
+
+.fade-in {
+    opacity: 1;
+    pointer-events: all;
+    transition: opacity .5s ease;
+}
+
+/* Animations */
+
+@keyframes shake-hand-player {
+    25% {
+        transform: translateY(-10%);
+    }
+
+    50% {
+        transform: translateY(0%);
+    }
+
+    75% {
+        transform: translateY(-10%);
+    }
+    
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes shake-hand-opponent {
+    25% {
+        transform: translateY(-10%) rotateY(180deg);
+    }
+
+    50% {
+        transform: translateY(0%) rotateY(180deg);
+    }
+
+    75% {
+        transform: translateY(-10%) rotateY(180deg);
+    }
+    
+    100% {
+        transform: translateY(0%) rotateY(180deg);
+    }
+}
