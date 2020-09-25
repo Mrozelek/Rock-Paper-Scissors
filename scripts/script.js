@@ -125,10 +125,10 @@ const storage = {
         if (localStorage.getItem('points') === null) {
             return 0;
         }
-        const storedPoints = JSON.parse(localStorage.getItem('points'));
-        for (const storedPoints of storedPoints) {
-            if (storedPoints.playerName === playerName) {
-                return storedPoints.points;
+        const storedPunctations = JSON.parse(localStorage.getItem('points'));
+        for (const storedPunctation of storedPunctations) {
+            if (storedPunctation.playerName === playerName) {
+                return storedPunctation.points;
             }
         }
     },
