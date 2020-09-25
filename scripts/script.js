@@ -122,26 +122,26 @@ const storage = {
         ui.changePointsText('opponent', storage.getPoints('opponent'));
     },
     getPoints: (playerName) => {
-        if (localStorage.getItem('punctation') === null) {
+        if (localStorage.getItem('points') === null) {
             return 0;
         }
-        const storedPunctations = JSON.parse(localStorage.getItem('punctation'));
-        for (const storedPunctation of storedPunctations) {
-            if (storedPunctation.playerName === playerName) {
-                return storedPunctation.points;
+        const storedPoints = JSON.parse(localStorage.getItem('points'));
+        for (const storedPoints of storedPoints) {
+            if (storedPoints.playerName === playerName) {
+                return storedPoints.points;
             }
         }
     },
     setPoints: (playerName, points) => {
         const player = { playerName: 'player', points: storage.getPoints('player') };
         const opponent = { playerName: 'opponent', points: storage.getPoints('opponent') };
-        const punctation = [player, opponent];
-        punctation.map((player) => {
+        const points = [player, opponent];
+        points.map((player) => {
             if (player.playerName === playerName) {
                 player.points = points;
             }
         });
-        localStorage.setItem('punctation', JSON.stringify(punctation));
+        localStorage.setItem('points', JSON.stringify(points));
     }
 }
 
