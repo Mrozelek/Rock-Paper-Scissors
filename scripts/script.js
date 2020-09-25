@@ -90,7 +90,9 @@ const ui = {
     changePointsText: (playerName, points) => {
         pointsTag = (playerName === 'player') ?
             ui.pointsPlayer : ui.pointsOpponent;
+        setTimeout(() => {
         pointsTag.textContent = points;
+        }, 300);
     },
     changeResultText: text => {
         setTimeout(() => {
